@@ -1,9 +1,19 @@
 
 #include <stdio.h>
+ #include <stdlib.h>
 
 int main() {
-     printf("=== Cartas Super Trunfo - Cidades Brasileiras ===\n\n"); 
-  
+    int Escolhas;
+
+    printf("1. Populacao\n");
+    printf("2. Area\n");
+    printf("3. Pib\n");
+    printf("4. Pontos Turisticos\n");
+    printf("5. Densidade Populacional\n");
+    printf("6. Pib Per Capita\n");
+    printf("7. Super Poder\n");
+    scanf("%d", &Escolhas);
+
   // Definição das cartas Super Trunfo para cidades brasileiras
     char estado1[30] = "RS";
     int codigo_carta1 = '1';
@@ -11,7 +21,7 @@ int main() {
     int populacao1 = 1400000;
     float area1 = 495.0; // em km²
     float pib1 = 104.74; //bilhões
-    int pontos_turisticos1 = 18;
+    int pontos_turisticos1 = 20;
     float densidade_populacional1 = populacao1 / area1; //aqui usei a matematica simples onde voce pega a soma de populção e divide por area²
     float pib_per_capita1 = populacao1 / pib1; // e aqui voce faz o mesmo so divide população por pib
     float super_poder1 = populacao1 + area1 + pib1 + pontos_turisticos1 + densidade_populacional1 + pib_per_capita1;
@@ -36,10 +46,10 @@ int main() {
     char estado2[30] = "SP";
     int codigo_carta2 = '2'; 
     char nome_da_cidade2[30] = "São Paulo";
-    int populacao2 = 12300000;
+    int populacao2 = 1230000;
     float area2 = 1521.11; // em km²
     float pib2 = 699.21; //bilhões
-    int pontos_turisticos2 = 25;
+    int pontos_turisticos2 = 20;
     float densidade_populacional2 = populacao2 / area2; //aqui usei a matematica simples onde voce pega a soma de populção e divide por area²
     float pib_per_capita2 = populacao2 / pib2; // e aqui voce faz o mesmo so divide população por pib
     float super_poder2 = populacao2 + area2 + pib2 + pontos_turisticos2 + densidade_populacional2 + pib_per_capita2;
@@ -59,46 +69,72 @@ int main() {
     printf("Pib per Capita:  %.2f reais\n", pib_per_capita2);
     printf("Super Poder: %.2f\n", super_poder2);
     printf("\n");
-
+ 
+    switch(Escolhas)
+ {
+  case 1:
+  printf("Populacao\n");
     //Comparaçoes das cartas
-    printf("\n===== Comparação entre as Cartas =====\n");
     if (populacao1 > populacao2){
       printf ("Carta 1 Venceu!(populacao1 > populacao2)\n");
     } else{
       printf("Carta 2 Venceu!(populacao2 > populacao1)\n");
     }
+    break;
+    case 2:
+    printf("Area\n");
      if (area1 >area2 ){
       printf ("Carta 1 Venceu! (area1 > area2)\n");
     } else{
       printf("Carta 2 Venceu!(area2 > area1)\n");
     }
+    break;
+    case 3:
+    printf("Pib\n");
      if (pib1 > pib2 ){
       printf ("Carta 1 Venceu!(pib1 > pib2)\n");
     } else{
       printf("Carta 2 Venceu! (pib2 > pib2)\n");
     }
-     if (pontos_turisticos1 > pontos_turisticos2 ){
-      printf ("Carta 1 Venceu! (Mais pontos turisticos que carta 2)\n");
-    } else{
-      printf("Carta 2 Venceu!(Mais pontos turisticos que carta 1)\n");
-    }
+    break;
+    case 4:
+    printf("Pontos Turisticos\n");
+     if (pontos_turisticos1 > pontos_turisticos2){
+      printf("Carta 1 Venceu!\n");
+     } else if (pontos_turisticos1 < pontos_turisticos2){
+      printf("Carta 2 Venceu!\n");
+     } else {
+      printf ("Empate!!\n");
+     }
+
+    break;
+    case 5:
+    printf("Densidade Populacional\n");
      if (densidade_populacional1 > densidade_populacional2 ){
       printf ("Carta 1 Venceu!(Densidade maior que carta 2)\n");
     } else{
       printf("Carta 2 Venceu!(Densidade maior que carta 1)\n");
     }
+    break;
+    case 6:
+    printf("Pib Per Capita\n");
      if (pib_per_capita1 > pib_per_capita2){
       printf ("Carta 1 Venceu!(Pib per capita1 > Pib per capita2)\n");
     } else{
       printf("Carta 2 Venceu!(Pib per capita2 > Pib per capita1)\n");
     }
+    break;
+    case 7:
+    printf("Super Poder\n");
      if (super_poder1 > super_poder2 ){
       printf ("Carta 1 Venceu!(Super Poder 1 > Super Poder 2)\n");
     } else{
       printf("Carta 2 Venceu!(Super Poder 2 > Super Poder 1)\n");
     }
-    
-    
+    break;
+    default:
+    printf("Opcao Invalida");
+  }
 
     // Fim do programa
   return 0;
